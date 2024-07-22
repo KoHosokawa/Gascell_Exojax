@@ -95,12 +95,6 @@ from IPython.display import clear_output
 #T0 = 273.15 #celsius to kelvin
 
 #parameter Setting
-'''
-Tarr1=np.array([24.0,24.0,24.0,24.0,23.9,23.9,23.7,23.6])+Tc_water #CH3-10 of 2024/06/27 at 300K
-Tarr2=np.array([231.0,230.6,230.2,231.0,230.9,231.3,233.2,233.3])+Tc_water #CH3-10 of 2024/06/27 at 500K
-Tarr3=np.array([429.6,428.1,429.5,431.6,431.6,432.0,434.0,432.0])+Tc_water #CH3-10 of 2024/05/27 at 700K
-Tarr4=np.array([720.1,722.2,728.1,733.5,732.9,731.0,729.4,725.4])+Tc_water #CH3-10 of 2024/06/28 at 1000K
-'''
 Tarr1=jnp.array([23.5,23.6,23.4,23.5,23.4,23.4,23.4,23.3])+Tc_water #CH3-10 of 2024/07/01 at 300K
 Tarr2=jnp.array([228.8,227.7,230.3,231.5,231.0,231.7,234.2,219.6])+Tc_water #CH3-10 of 2024/07/01 at 500K
 Tarr3=jnp.array([426.3,426.4,431.9,433.3,431.7,431.8,434.7,413.5])+Tc_water #CH3-10 of 2024/07/01 at 700K
