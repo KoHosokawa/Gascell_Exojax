@@ -40,14 +40,12 @@ def Trans_model_1Voigt_opa(Wavoff, S_0,alpha, gamma_self, n, Tarr,Twt, P_total,P
     line_strength_ref_weak = np.delete(mdb.line_strength_ref, strline_ind)
 
     mdb_weak = mdb
-    print(len(mdb.nu_lines))
     mdb_weak.nu_lines = nu_lines_weak
     mdb_weak.elower = elower_weak 
     mdb_weak.gamma_air = gamma0_weak
     mdb_weak.n_air = n_weak
     mdb_weak.line_strength_ref = line_strength_ref_weak
     #clear_output() #delete the above outputs. you can't see the run process
-    print(len(mdb.nu_lines))
     
     '''
     #create the grids for calculating dE at opapremodit (without strongest line)
@@ -78,12 +76,6 @@ def Trans_model_1Voigt_opa(Wavoff, S_0,alpha, gamma_self, n, Tarr,Twt, P_total,P
     #cross-section of weak lines at each Temperature channel
     P_total_array = np.full(len(Tarr),P_total)
     xsmatrix_weak = opa.xsmatrix(Tarr, P_total_array) 
-    plt.plot(xsmatrix_weak[0],label="1")
-    plt.plot(xsmatrix_weak[1],label="2")
-    plt.plot(xsmatrix_weak[2],label="3")
-    plt.legend()
-    plt.show()
-    print(xsmatrix_weak.shape)
     
     #Calculate the Voigt fitting with separating several channels
     for j in range(len(Tarr)):
