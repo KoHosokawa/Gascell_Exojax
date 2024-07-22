@@ -133,7 +133,7 @@ def Trans_model_1Voigt(Wavoff, S_0,alpha, gamma_self, n, Tarr,Twt, P_total,P_sel
         line_strength_ref_weak = np.delete(mdb.line_strength_ref, strline_ind)
         qt = vmap(mdb.qr_interp, (None, 0))(mdb.isotope, jnp.array([Tarr_j]))
         #clear_output() #delete the above outputs. you can't see the run process
-        print(len(mdb.nu_lines))
+        #print(len(mdb.nu_lines))
 
         #create the grids for calculating dE at opapremodit (without strongest line)
         lbd, multi_index_uniqgrid, elower_grid, \
