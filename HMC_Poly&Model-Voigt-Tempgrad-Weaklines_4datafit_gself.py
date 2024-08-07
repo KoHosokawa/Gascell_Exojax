@@ -55,7 +55,7 @@ from exojax.spec.api import MdbHitemp
 from exojax.spec.hitran import line_strength
 from exojax.spec.specop import SopInstProfile
 from Isobaric_Numdensity import calc_dnumber_isobaric
-from Trans_model_1Voigt_HITEMP_nu_2408rev import Trans_model_1Voigt
+from Trans_model_1Voigt_HITEMP import Trans_model_1Voigt
 import jax.numpy as jnp
 import numpy as np
 from jax.config import config
