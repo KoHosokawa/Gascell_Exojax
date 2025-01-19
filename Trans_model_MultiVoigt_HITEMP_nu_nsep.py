@@ -100,3 +100,4 @@ def Trans_model_MultiVoigt_nsep(
     trans_all_specgrid = sop_inst.sampling(trans_all, 0, nu_data_offset_grid)
 
     return trans_all_specgrid
+
