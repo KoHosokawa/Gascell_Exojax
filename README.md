@@ -1,5 +1,5 @@
-This repository stores the codes for the analysis of Gascell experiment using ExoJAX. 
-"HMC_MultiVoigt_8dfit_g-H2He_gself_nsep_alpha-Vcom-Tcom.py": runs the Bayesian inference by HMC sampling.
+This repository stores the codes for the analysis of Gascell experiment using ExoJAX. \\
+"HMC_MultiVoigt_8dfit_g-H2He_gself_nsep_alpha-Vcom-Tcom.py": runs the Bayesian inference by HMC sampling.\\
 "Leastsquare_MultiVoigt_8dfit_g-H2He_gself_nsep_alpha-Vcom-Tcom.py": runs the estimation of the parameters by Least-square methods discribed in Append. B of the paper.
 
 Those files use the modules descibed in below files:
