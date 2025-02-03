@@ -36,7 +36,7 @@ def calc_dnumber_isobaric(T_array, P0, T0):
     P_total = nlayer * kB * 1.0e-6 * n_total / (Tinv_sum)
 
     # print(nlayer/Tinv_sum)
-    return n_array, P_total
+    return n_array, P_total #bar
 
 
 """

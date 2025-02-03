@@ -97,8 +97,8 @@ def plot_spectra_data(trans_array, wavd_array):
     ax.get_xaxis().get_major_formatter().set_useOffset(
         False
     )  # To avoid exponential labeling
-
-    plt.show()
+    plt.savefig("test.jpg")
+    #plt.show()
     plt.clf()
 
 
@@ -228,15 +228,15 @@ def print_parameters(Tarrs, P_total_array, nu_span, valrange, Nx, mdb_voigt):
 
 from exojax.utils.constants import Patm
 
-
+"""
 def calculate_gammaL_nsep(
-    P0_total, Tcenter, T_seal, VMR, predictions, mdb_voigt, linenum
-):
+    P0_total, Tcenter, T_seal, VMR, predictions, mdb_voigt, linenum):
     P_total = P0_total * Tcenter / T_seal
     P_self = P_total * VMR
 
     n_H2Hes = jnp.array([predictions[f"n_H2He{i}"] for i in range(1, linenum + 1)])
     n_selfs = jnp.array([predictions[f"n_self{i}"] for i in range(1, linenum + 1)])
+
 
     # Check if gamma_refs should be vectorized
     if any(f"gamma_ref{i}" in predictions for i in range(1, linenum + 1)):
@@ -276,7 +276,36 @@ def calculate_gammaL_nsep(
             ]
         )
     return gammaL
+"""
 
+def calculate_gammaL_nsep(P0_total, Tcenter, T_seal, VMR, predictions, mdb_voigt, linenum):
+    P_total = P0_total * Tcenter / T_seal
+    P_self = P_total * VMR
+
+    n_H2Hes = jnp.array([predictions[f"n_H2He{i}"] for i in range(1, linenum + 1)])
+    n_selfs = jnp.array([predictions[f"n_self{i}"] for i in range(1, linenum + 1)])
+    gamma_H2Hes = jnp.array(
+            [predictions[f"gamma_H2He{i}"] for i in range(1, linenum + 1)]
+        )
+    gamma_selfs = jnp.array(
+            [predictions[f"gamma_self{i}"] for i in range(1, linenum + 1)]
+        )
+
+    gammaL = jnp.array(
+        [
+            gamma_hitran_nsep(
+                P_total,
+                Tcenter,
+                P_self,
+                n_H2Hes[i],
+                n_selfs[i],
+                gamma_H2Hes[i],
+                gamma_selfs[i],
+            )
+            for i in range(linenum)
+        ]
+    )
+    return gammaL
 
 def gamma_hitran_nsep(P, T, Pself, n_broad, n_self, gamma_broad_ref, gamma_self_ref):
     """
@@ -301,7 +330,7 @@ def gamma_hitran_nsep(P, T, Pself, n_broad, n_self, gamma_broad_ref, gamma_self_
 
     return gamma
 
-
+"""
 def calculate_gammaL_peratm(Tcenter, VMR, predictions, mdb_voigt, linenum):
     P_1atm = 1.0 * Patm  # [bar]
     P_self_1atm = P_1atm * VMR  # [bar]
@@ -345,6 +374,36 @@ def calculate_gammaL_peratm(Tcenter, VMR, predictions, mdb_voigt, linenum):
                 for i in range(linenum)
             ]
         )
+    return gammaL_peratm
+"""
+
+def calculate_gammaL_peratm(Tcenter, VMR, predictions, mdb_voigt, linenum):
+    P_1atm = 1.0 * Patm  # [bar]
+    P_self_1atm = P_1atm * VMR  # [bar]
+
+    n_H2Hes = jnp.array([predictions[f"n_H2He{i}"] for i in range(1, linenum + 1)])
+    n_selfs = jnp.array([predictions[f"n_self{i}"] for i in range(1, linenum + 1)])
+    gamma_H2Hes = jnp.array(
+            [predictions[f"gamma_H2He{i}"] for i in range(1, linenum + 1)]
+        )
+    gamma_selfs = jnp.array(
+            [predictions[f"gamma_self{i}"] for i in range(1, linenum + 1)]
+        )
+
+    gammaL_peratm = jnp.array(
+        [
+            gamma_hitran_nsep(
+                P_1atm,
+                Tcenter,
+                P_self_1atm,
+                n_H2Hes[i],
+                n_selfs[i],
+                gamma_H2Hes[i],
+                gamma_selfs[i],
+            )
+            for i in range(linenum)
+        ]
+    )
     return gammaL_peratm
 
 
