@@ -189,7 +189,7 @@ L_array = np.array(
 )
 
 # Initialize pressures when the cell was sealed
-P0_total_array = [0.423] * nspec  #the same initial pressure at sealing[bar]
+P0_total_array = [0.423] * nspec  # the same initial pressure at sealing[bar]
 
 # Initialize lists to store results
 ngas_array = [None] * nspec
@@ -277,10 +277,10 @@ mdb = MdbHitemp(
     nurange=nu_grid,
     # crit=1e-25,
     gpu_transfer=False,  # Trueだと計算速度低下
-    parfile = "database/06_HITEMP2020_2.par",
-    #with_error=True,
+    parfile="database/06_HITEMP2020_2.par",
+    # with_error=True,
 )  # for obtaining the error of each line
-#mdb.add_error()
+# mdb.add_error()
 
 # Calculate the line index in the order of the line strength at T=twt
 S_T = S_Tcalc(mdb.nu_lines, mdb.line_strength_ref_original, Twt)
@@ -382,7 +382,7 @@ def model_c(y1, y2, y3, y4, y5, y6, y7, y8):
                 ),
                 "b": numpyro.sample(
                     f"b{i+1}",  # dist.Uniform(-valrange / nu_span, valrange / nu_span)
-                    dist.Uniform(-valrange ** 2, valrange ** 2),
+                    dist.Uniform(-(valrange**2), valrange**2),
                 ),
                 "c": numpyro.sample(f"c{i+1}", dist.Uniform(-valrange, valrange)),
                 "d": numpyro.sample(f"d{i+1}", dist.Uniform(0.0, 2.0)),
@@ -493,7 +493,7 @@ print_parameters(
 rng_key = random.PRNGKey(0)
 rng_key, rng_key_ = random.split(rng_key)  # generate random numbers
 
-#num_warmup, num_samples = 10, 10
+# num_warmup, num_samples = 10, 10
 # num_warmup, num_samples = 20, 200
 # num_warmup, num_samples = 100, 200
 num_warmup, num_samples = 1000, 2000
@@ -523,13 +523,13 @@ wavmax_str = str(np.max(wavd)).replace(".", "")
 Nitr = num_samples + num_warmup
 
 # Save file name
-#savefilename = f"Results/HMC/240527-0703_{wavmin_str}-{wavmax_str}_R00025_CH4VMR01-1_HMC{Nitr}_{linenum}V_sig1e3_expd_nuoff-005_n-both-2-2_g-both0-02_pval4_al1-0-5_unidist_{nspec}dfit"
+# savefilename = f"Results/HMC/240527-0703_{wavmin_str}-{wavmax_str}_R00025_CH4VMR01-1_HMC{Nitr}_{linenum}V_sig1e3_expd_nuoff-005_n-both-2-2_g-both0-02_pval4_al1-0-5_unidist_{nspec}dfit"
 savefilename = f"Results/HMC/Check_240527-0703_{wavmin_str}-{wavmax_str}_R00025_CH4VMR01-1_HMC{Nitr}_{linenum}V_sig1e3_expd_nuoff-005_n-both-2-2_g-both0-02_pval4_al1-0-5_unidist_{nspec}dfit"
 # yoffset = -round((np.max(Trans3) - np.min(Trans3) + 0.1), 1)
 
 # Define the representive temperature array
 Tcenters = [297, 500, 700, 1000, 297, 500, 700, 1000]
-#Tcenters = [297, 503, 702, 1001, 297, 505, 704, 1001]
+# Tcenters = [297, 503, 702, 1001, 297, 505, 704, 1001]
 
 plot_save_results_2cell(
     wavd_array,
