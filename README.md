@@ -1,6 +1,7 @@
 # Gascell_Exojax
 
-This repository contains spectral data and modeling scripts for analyzing high-resolution methane absorption spectra in H₂/He gas environments. The data and code are designed for use with [ExoJAX](https://github.com/HajimeKawahara/exojax), a GPU-accelerated spectral modeling tool for exoplanetary and substellar atmospheres.
+This repository contains spectral data and modeling scripts for analyzing high-resolution methane absorption spectra in H₂/He gas environments used in Hosokawa et al., 2025. 
+The data and code are designed for use with [ExoJAX](https://github.com/HajimeKawahara/exojax), a GPU-accelerated spectral modeling tool for exoplanetary and substellar atmospheres.
 
 ## Repository Structure
 ### 📁 Spectral Data Files
@@ -37,7 +38,7 @@ The intensity is defined as the average intensity over the measured wavelength r
 
 ## Getting Started
 
-This repository assumes that you have ExoJAX installed and are familiar with its API for forward modeling and retrievals. If not, please see the [ExoJAX documentation](https://github.com/HajimeKawahara/exojax) for setup instructions.
+This repository assumes that you have ExoJAX installed and are familiar with its API for forward modeling and retrievals. If not, please see the [ExoJAX](https://github.com/HajimeKawahara/exojax) documentation for setup instructions.
 
 
 ### Usage
