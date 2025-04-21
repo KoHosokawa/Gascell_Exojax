@@ -5,7 +5,7 @@ The data and code are designed for use with [ExoJAX](https://github.com/HajimeKa
 
 ## Repository Structure
 ### 📁 Spectral Data Files
-These files provide 8 sets of normalized intensity spectra of methane (CH₄) within the wavelength range 1600–1630 nm, under various temperature and volume mixing ratio (VMR) conditions. The naming convention is:
+These files provide 8 sets of normalized intensity spectra of methane (CH₄) within the wavelength range 1600–1630 nm, under various temperature and volume mixing ratio (VMR) conditions. The naming convention is:  
 1600-1630nm_CH4_VMR[VMR]_T[Temperature]K_IntensityNormalized.dat
 
 For example:
