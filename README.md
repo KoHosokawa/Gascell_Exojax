@@ -6,8 +6,9 @@ The data and code are designed for use with [ExoJAX](https://github.com/HajimeKa
 ## Repository Structure
 ### 📁 Spectral Data Files
 These files provide 8 sets of normalized intensity spectra of methane (CH₄) within the wavelength range 1600–1630 nm, under various temperature and volume mixing ratio (VMR) conditions. The naming convention is:  
+  
 1600-1630nm_CH4_VMR[VMR]_T[Temperature]K_IntensityNormalized.dat
-
+  
 For example:
 - `1600-1630nm_CH4_VMR01_T1000K_IntensityNormalized.dat`  
   → CH₄ spectra at 1000 K with VMR = 0.1
@@ -45,11 +46,11 @@ This repository assumes that you have ExoJAX installed and are familiar with its
 
 To fit parameters using Bayesian inference:
 
-python HMC_MultiVoigt_8dfit_g-H2He_gself_nsep_alpha.py
+`python HMC_MultiVoigt_8dfit_g-H2He_gself_nsep_alpha.py`
 
 To run least-square optimization instead:
 
-python Leastsquare_MultiVoigt_8dfit_g-H2He_gself_nsep_alpha.py
+`python Leastsquare_MultiVoigt_8dfit_g-H2He_gself_nsep_alpha.py`
 
 You can modify temperature, VMR, and wavelength ranges by editing the input filenames and parameters in the script headers.
 
