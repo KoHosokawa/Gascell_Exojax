@@ -13,6 +13,9 @@ For example:
 - `1600-1630nm_CH4_VMR01_T297K_IntensityNormalized.dat`  
   → Room temperature spectrum
 
+Note that only the spectrum of VMR=0.1, 700K has data in the range of 1610-1630nm due to the setting of the measurement.
+The intensity is defined as the average intensity over the measured wavelength range set to 1, and is different from the transmittance.
+
 ### 🧮 Python Scripts
 
 - `HMC_MultiVoigt_8dfit_g-H2He_gself_nsep_alpha.py`:  
